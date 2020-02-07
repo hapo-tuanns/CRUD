@@ -27,18 +27,18 @@
         </tr>
         @foreach ($products as $product)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ ++$i ?? '' }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
             <td>
                 <div>
                     <div class="d-flex">
-                        <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('products.show', $product->id) }}">Show</a>
     
-                        <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
                     </div>
                     <div class="">
-                        <form action="{{ route('products.destroy',$product->id) }}" method="POST">  
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST">  
                             @csrf
                             @method('DELETE') 
                                 
